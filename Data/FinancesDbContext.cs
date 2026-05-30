@@ -9,6 +9,6 @@ public class FinancesDbContext : DbContext
         : base(options)
     {
     }
-    
+
     public DbSet<User> Users { get; set; }
 }
