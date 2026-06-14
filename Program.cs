@@ -18,11 +18,14 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
 builder.Services.AddControllers();
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.MapControllers();
+
+app.MapOpenApi();
 
 app.Run();
