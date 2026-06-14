@@ -1,5 +1,6 @@
 using Finances.Data;
 using Finances.Entities;
+using Finances.MIddleware;
 using Finances.Repositories;
 using Finances.Services;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.MapControllers();
 
