@@ -39,4 +39,11 @@ public class UserController(IUserService userService) : ControllerBase
         await userService.DeleteAsync(id);
         return NoContent();
     }
+
+    [HttpGet]
+    public async Task<ActionResult<IReadOnlyList<UserResponseDto>>> GetAllAsync()
+    {
+        var users = await userService.GetAllAsync();
+        return Ok(users);
+    }
 }

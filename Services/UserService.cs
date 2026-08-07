@@ -74,6 +74,15 @@ public class UserService(IUserRepository userRepository, IPasswordHasher<User> p
         return user.ToResponseDto();
     }
 
+    public async Task<IReadOnlyList<UserResponseDto>> GetAllAsync()
+    {
+        var users = await userRepository.GetAllAsync();
+
+        return users
+            .Select(user => user.ToResponseDto())
+            .ToList();
+    }
+
     private async Task<User> GetUserByIdOrThrowAsync(Guid id)
     {
         var user = await userRepository.GetByIdAsync(id);
