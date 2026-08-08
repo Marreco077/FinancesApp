@@ -1,10 +1,10 @@
-using Finances.DTOs;
+using Finances.DTOs.Users;
 using Finances.Entities;
 using Finances.Extensions;
 using Finances.Repositories;
 using Microsoft.AspNetCore.Identity;
 
-namespace Finances.Services;
+namespace Finances.Services.Users;
 
 public class UserService(IUserRepository userRepository, IPasswordHasher<User> passwordHasher) : IUserService
 {

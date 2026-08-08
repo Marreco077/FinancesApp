@@ -1,8 +1,9 @@
-using Finances.DTOs;
-using Finances.Services;
+using Finances.DTOs.Users;
+using Finances.Services.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Finances.Controllers;
+namespace Finances.Controllers.Users;
 
 [ApiController]
 [Route("api/users")]
@@ -39,7 +40,8 @@ public class UserController(IUserService userService) : ControllerBase
         await userService.DeleteAsync(id);
         return NoContent();
     }
-
+    
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<UserResponseDto>>> GetAllAsync()
     {

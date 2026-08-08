@@ -1,6 +1,6 @@
-using Finances.DTOs;
+using Finances.DTOs.Users;
 
-namespace Finances.Services;
+namespace Finances.Services.Users;
 
 public interface IUserService
 {

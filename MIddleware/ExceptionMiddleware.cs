@@ -17,6 +17,15 @@ public class ExceptionMiddleware(RequestDelegate next)
                 message = ex.Message
             });
         }
+        catch (UnauthorizedAccessException ex)
+        {
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+
+            await context.Response.WriteAsJsonAsync(new
+            {
+                message = ex.Message
+            });
+        }
         catch (InvalidOperationException ex)
         {
             context.Response.StatusCode = StatusCodes.Status409Conflict;

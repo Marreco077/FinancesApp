@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Finances.DTOs;
+namespace Finances.DTOs.Users;
 
 public sealed record UpdateUserDto(
     [StringLength(50, MinimumLength = 2)]

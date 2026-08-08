@@ -1,4 +1,4 @@
-using Finances.DTOs;
+using Finances.DTOs.Users;
 using Finances.Entities;
 
 namespace Finances.Extensions;

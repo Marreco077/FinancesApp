@@ -1,4 +1,4 @@
-namespace Finances.DTOs;
+namespace Finances.DTOs.Users;
 
 public sealed record UserResponseDto(
     Guid Id,
